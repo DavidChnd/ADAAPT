@@ -23,10 +23,7 @@ editor_options:
   chunk_output_type: console
 ---
 
-Caractérisation du climat des aux deux sites des tests de provenances à Orléans et Haguenau
-
-- Maille 1402 correspond au site du test de provenance d'Haagenau
-- Maille 3192 correspond au site du test de provenance d'Orléans
+Manip ADAAPT ...
 
 # Packages
 ```{r packages, message=FALSE, warning=FALSE}
@@ -37,6 +34,42 @@ library(writexl)
 library(readxl)
 
 ```
+
+# Import JDD
+```{r Import JDD, message=FALSE, warning=FALSE}
+# Import
+hauteur <- read_excel("~/Desktop/Adaapt/Mesures/hauteur.xlsx")
+
+
+# Chargement et mise en forme
+hauteur <- read_excel("~/Desktop/Adaapt/Mesures/hauteur.xlsx") %>%
+  drop_na() %>%  # Supprime d'abord les lignes incomplètes
+  mutate(
+    across(-hauteur_05_05, as.factor),         # Transforme toutes les autres colonnes en facteurs
+    hauteur_05_05 = as.numeric(hauteur_05_05)  # Convertit hauteur_05_05 en numérique
+  )
+
+# Vérification de la structure
+str(hauteur)
+
+```
+
+# Visualisation Hauteur
+```{r Visualisation, message=FALSE, warning=FALSE}
+
+library(ggplot2)
+
+ggplot(hauteur, aes(x = geno, y = hauteur_05_05)) +
+  geom_boxplot(fill = "skyblue") +
+  theme_minimal() +
+  labs(title = "Hauteur par génotype", x = "Génotype", y = "Hauteur (05/05)") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+```
+
+
+
+
 
 
 
