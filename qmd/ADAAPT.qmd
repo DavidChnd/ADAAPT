@@ -1,0 +1,42 @@
+---
+title: "Manip ADAAPT"
+author: "David Chassagnaud"
+date: "`r Sys.Date()`"
+format:
+  html:
+    theme: united      # Tu peux changer le thème : cosmo, flatly, united, etc.
+    highlight-style: pygments  # ← ou github, monokai, pygments, etc.
+    toc: true         # Active la table des matières
+    toc-depth: 2      # Niveau de profondeur de la table des matières (1 à 6)
+    toc-location: right  # Position : left, right ou float
+    number-sections: true  # Numérote les sections
+    code-fold: true   # Permet de replier/déplier les blocs de code
+    code-tools: true  # Affiche les outils (copier le code, etc.)
+    smooth-scroll: true  # Ajoute un défilement fluide
+    page-layout: full
+    fig-width: 12 # Pour gèrer la taille des figure par défaut 
+    fig-height: 9
+    fig-align: center # Alignement des figures par défaut 
+  #  include-after-body: footer.html # préciser le chemin du fichier(mis dans qmd)
+   # css: style.css # préciser le chemin du fichier(mis dans qmd)
+editor_options: 
+  chunk_output_type: console
+---
+
+Caractérisation du climat des aux deux sites des tests de provenances à Orléans et Haguenau
+
+- Maille 1402 correspond au site du test de provenance d'Haagenau
+- Maille 3192 correspond au site du test de provenance d'Orléans
+
+# Packages
+```{r packages, message=FALSE, warning=FALSE}
+library(dplyr)
+library(tidyverse)
+library(ggplot2)
+library(writexl)
+library(readxl)
+
+```
+
+
+
