@@ -36,7 +36,7 @@ library(readxl)
 ```
 
 # Import JDD
-```{r Import JDD, message=FALSE, warning=FALSE}
+```{r Import JDD, message=FALSE, warning=FALSE, results='hide'}
 # Import
 hauteur <- read_excel("~/Desktop/Adaapt/Mesures/hauteur.xlsx")
 
